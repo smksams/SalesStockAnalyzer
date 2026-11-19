@@ -21,7 +21,12 @@ namespace SalesStockAnalyzer
             var xmlHandler = new XmlHandler();
             var doc = xmlHandler.ReadXml(configurationHandler.XmlFilePath);
             var xml = xmlHandler.XmlDeserializer(doc);
-            Console.WriteLine(xml.Products.First().Name);
+
+            foreach (var product in xml.Products)
+            {
+                Console.WriteLine(product.Id + " " + product.Name);
+            }
+            
         }
     }
 }
